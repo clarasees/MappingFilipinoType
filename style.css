@@ -1,0 +1,264 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+
+h1 {
+      font-family: Jeepnetica;
+      src:url("JeepneticaVF.woff2");
+}
+
+  h3 {
+      font-family: "Hanken Grotesk", sans-serif;
+      font-optical-sizing: 10;
+      font-weight: 300;
+      font-size: 1.2em;
+      font-style: normal;
+      color:beige;
+    }
+
+  h2 {
+      font-family: "Hanken Grotesk", sans-serif;
+      font-optical-sizing: 20;
+      font-weight: 800;
+      font-size: 1.25em;
+      font-style: normal;
+  }
+
+  .topleft {
+      position: fixed;
+      top: -10px;
+      left: 10px;
+      font-size: 18px;
+      width: 50vw;
+
+  }
+
+
+  .bottomright {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      width: 50vw;
+
+  }
+
+  .bottomcredits {
+    position: fixed;
+    bottom: 10px;
+    right: 80px;
+  }
+
+
+  
+  .displaytextleft {
+    width: 50vh;
+    padding-left: 10%;
+    padding-top: 10%;
+  }
+
+  .dashed-bar {
+      position: fixed;
+      width: 50vw;
+      height: 10px;
+      background-image: repeating-linear-gradient(to right,
+              black 0 40px,
+              white 0px 80px);
+      z-index: 9999;
+  }
+
+  .border {
+      border: 10px solid white;
+  }
+
+  .dashed-right {
+      top: 0;
+      right: 0;
+      left: auto;
+      transform: none;
+  }
+
+  .dashed-left {
+      bottom: 0;
+      left: 0;
+      transform: none;
+  }
+
+
+  body {
+      font-family: "Hanken Grotesk", sans-serif;
+      background: linear-gradient(#1e4e82, #1c61ea, #00f2fe);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+  }
+
+  .map-container {
+      position: relative;
+      padding: 30px;
+      width: 100%;
+  }
+
+
+
+  .map-svg {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      cursor: crosshair;
+  }
+
+  .province {
+      fill: #f2dadd;
+      stroke-width: 2;
+      transition: all 0.3s ease;
+      cursor: pointer;
+  }
+
+  .province:hover {
+      fill: red;
+      ;
+      stroke: #f2dadd;
+      stroke-width: 3;
+      filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.4));
+  }
+
+  .popup {
+      position: absolute;
+      background: white;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      padding: 0;
+      display: none;
+      z-index: 1000;
+      width: 450px;
+      max-height: 300px;
+      overflow: hidden;
+      border: 3px solid black;
+
+  }
+
+  .popup-content {
+      display: flex;
+      height: 300px;
+  }
+
+  .popup-image {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+
+  .popup-text {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+  }
+
+  .popup-text::-webkit-scrollbar {
+      width: 9px;
+  }
+
+  .popup-text::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 3px;
+  }
+
+  .popup-text::-webkit-scrollbar-thumb {
+      background: black;
+  }
+
+  .popup-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: black;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #black;
+      padding-bottom: 8px;
+  }
+
+  .popup-description {
+      color: black;
+      line-height: 1.4;
+      font-size: 1rem;
+      text-align: left;
+  }
+
+  .highlight {
+      color: #667eea;
+      font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+      .map-container {
+          padding: 15px;
+      }
+
+      h1 {
+          font-size: 1.8rem;
+          margin-bottom: 20px;
+          margin-top: 60px;
+      }
+
+       h3 {
+          font-size: 1.2rem;
+          margin-bottom: 40px;
+      }
+
+      .popup {
+          width: 350px;
+          max-height: 280px;
+      }
+
+      .popup-content {
+          height: 280px;
+      }
+
+      .popup-text {
+          padding: 15px;
+      }
+
+      .popup-title {
+          font-size: 1.1rem;
+      }
+
+      .popup-description {
+          font-size: 0.85rem;
+      }
+  }
+
+  @media (max-width: 480px) {
+      .popup {
+          width: 300px;
+          max-height: 250px;
+      }
+
+      .popup-content {
+          flex-direction: column;
+          height: 250px;
+      }
+
+      .popup-image {
+          flex: 0.5;
+          border-radius: 12px 12px 0 0;
+      }
+
+      .popup-text {
+          flex: 0.5;
+          border-radius: 0 0 12px 12px;
+          padding: 12px;
+      }
+
+      .popup-title {
+          font-size: 1rem;
+          margin-bottom: 8px;
+      }
+
+      .popup-description {
+          font-size: 0.8rem;
+      }
+  }
